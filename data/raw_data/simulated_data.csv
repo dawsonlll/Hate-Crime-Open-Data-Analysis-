@@ -1,0 +1,201 @@
+dates,number_of_hate_crime,occurrence_year,primary_offence,arrest_made,hour
+2023-12-01,0,2023,Mischief,NO,14
+2022-02-05,2,2022,Wilful Promotion of Hatred,YES,15
+2018-01-09,0,2018,Theft,YES,19
+2020-01-13,0,2020,Fraud,NO,12
+2023-12-08,0,2023,Assault,NO,3
+2019-03-16,1,2019,Wilful Promotion of Hatred,NO,21
+2023-06-11,1,2023,Theft,NO,12
+2022-10-10,1,2022,Wilful Promotion of Hatred,YES,20
+2019-07-27,3,2019,Fraud,YES,23
+2021-04-17,3,2021,Theft,NO,2
+2020-10-21,0,2020,Wilful Promotion of Hatred,YES,13
+2023-02-05,1,2023,Assault,YES,21
+2023-07-29,0,2023,Mischief,NO,14
+2018-07-09,0,2018,Fraud,NO,4
+2023-08-30,2,2023,Assault,NO,7
+2018-05-26,2,2018,Theft,YES,3
+2019-06-06,1,2019,Wilful Promotion of Hatred,YES,18
+2018-08-24,1,2018,Mischief,NO,6
+2022-06-03,0,2022,Wilful Promotion of Hatred,NO,1
+2021-09-30,0,2021,Assault,YES,14
+2019-08-16,1,2019,Assault,YES,22
+2018-10-22,2,2018,Mischief,YES,15
+2018-11-26,0,2018,Assault,NO,19
+2019-11-01,0,2019,Wilful Promotion of Hatred,YES,7
+2023-03-09,2,2023,Wilful Promotion of Hatred,NO,16
+2020-05-16,4,2020,Fraud,YES,10
+2019-02-28,0,2019,Mischief,YES,5
+2022-12-09,2,2022,Wilful Promotion of Hatred,NO,8
+2019-04-14,1,2019,Assault,YES,4
+2020-06-28,2,2020,Assault,NO,2
+2022-01-31,2,2022,Assault,NO,21
+2021-08-13,0,2021,Assault,NO,18
+2023-06-04,0,2023,Mischief,YES,9
+2022-02-09,2,2022,Fraud,NO,11
+2023-08-16,5,2023,Fraud,YES,17
+2022-10-23,0,2022,Wilful Promotion of Hatred,NO,2
+2018-05-19,1,2018,Assault,YES,23
+2020-06-21,1,2020,Assault,NO,5
+2019-05-05,1,2019,Assault,NO,13
+2018-02-23,2,2018,Wilful Promotion of Hatred,YES,10
+2019-07-03,2,2019,Theft,YES,13
+2020-10-25,1,2020,Theft,YES,23
+2019-10-19,1,2019,Wilful Promotion of Hatred,YES,16
+2020-06-29,3,2020,Wilful Promotion of Hatred,YES,19
+2023-06-26,1,2023,Mischief,NO,7
+2020-12-07,1,2020,Wilful Promotion of Hatred,NO,3
+2021-01-05,1,2021,Mischief,YES,4
+2021-11-20,0,2021,Theft,NO,14
+2021-12-06,1,2021,Mischief,NO,1
+2018-08-09,1,2018,Theft,NO,8
+2021-05-12,0,2021,Wilful Promotion of Hatred,YES,1
+2022-02-24,1,2022,Theft,YES,1
+2021-10-30,1,2021,Assault,YES,2
+2020-09-18,0,2020,Wilful Promotion of Hatred,NO,21
+2018-12-31,0,2018,Fraud,NO,19
+2019-06-06,1,2019,Fraud,YES,0
+2020-10-07,0,2020,Fraud,YES,12
+2022-11-16,1,2022,Assault,YES,6
+2023-12-18,1,2023,Assault,NO,3
+2021-10-02,1,2021,Fraud,YES,11
+2018-10-02,1,2018,Theft,YES,8
+2020-08-15,2,2020,Assault,YES,10
+2022-12-15,1,2022,Fraud,NO,7
+2021-03-24,0,2021,Mischief,YES,20
+2023-10-02,1,2023,Theft,NO,9
+2021-07-24,2,2021,Assault,NO,14
+2021-02-04,1,2021,Assault,NO,13
+2023-03-21,0,2023,Assault,NO,1
+2020-01-08,0,2020,Assault,NO,6
+2020-10-15,2,2020,Fraud,YES,10
+2023-03-04,2,2023,Mischief,NO,1
+2018-04-22,1,2018,Assault,YES,10
+2023-04-18,0,2023,Mischief,NO,14
+2021-06-10,0,2021,Assault,YES,2
+2023-09-17,0,2023,Wilful Promotion of Hatred,NO,9
+2021-12-23,0,2021,Mischief,YES,12
+2022-04-18,3,2022,Wilful Promotion of Hatred,YES,23
+2023-04-25,1,2023,Fraud,NO,19
+2020-08-11,2,2020,Theft,YES,11
+2023-09-13,2,2023,Wilful Promotion of Hatred,NO,4
+2020-10-14,0,2020,Assault,NO,3
+2022-01-18,0,2022,Mischief,YES,7
+2019-03-10,1,2019,Mischief,NO,23
+2018-03-05,1,2018,Assault,NO,11
+2020-11-14,2,2020,Mischief,NO,23
+2021-07-31,0,2021,Assault,NO,19
+2023-03-04,1,2023,Fraud,YES,17
+2020-06-25,2,2020,Wilful Promotion of Hatred,YES,9
+2020-04-17,0,2020,Theft,NO,12
+2019-11-25,0,2019,Fraud,YES,8
+2018-05-29,0,2018,Wilful Promotion of Hatred,NO,16
+2019-03-03,1,2019,Mischief,YES,18
+2020-03-19,0,2020,Mischief,YES,10
+2019-01-22,1,2019,Assault,YES,18
+2020-11-22,0,2020,Theft,YES,6
+2021-01-11,1,2021,Mischief,YES,15
+2023-05-28,0,2023,Mischief,NO,7
+2018-03-28,1,2018,Theft,NO,3
+2021-11-18,0,2021,Mischief,NO,21
+2018-03-31,0,2018,Wilful Promotion of Hatred,YES,19
+2018-04-07,2,2018,Mischief,YES,12
+2019-12-31,1,2019,Wilful Promotion of Hatred,NO,6
+2018-06-24,1,2018,Fraud,NO,3
+2021-01-03,1,2021,Fraud,YES,11
+2021-11-09,2,2021,Mischief,NO,15
+2023-06-24,2,2023,Assault,NO,8
+2019-07-03,1,2019,Mischief,YES,11
+2021-03-13,1,2021,Assault,NO,22
+2022-01-25,0,2022,Wilful Promotion of Hatred,NO,18
+2019-09-01,1,2019,Wilful Promotion of Hatred,NO,8
+2019-05-16,1,2019,Assault,NO,19
+2021-01-15,1,2021,Theft,YES,15
+2018-06-10,1,2018,Wilful Promotion of Hatred,NO,15
+2019-11-18,0,2019,Fraud,NO,7
+2023-11-24,0,2023,Wilful Promotion of Hatred,NO,13
+2018-11-09,1,2018,Fraud,NO,21
+2018-05-14,2,2018,Wilful Promotion of Hatred,YES,22
+2022-04-15,1,2022,Mischief,YES,17
+2023-10-30,0,2023,Fraud,YES,14
+2022-04-28,2,2022,Assault,NO,22
+2020-07-04,1,2020,Wilful Promotion of Hatred,NO,11
+2020-04-19,0,2020,Wilful Promotion of Hatred,NO,14
+2023-04-17,0,2023,Theft,NO,16
+2019-11-13,1,2019,Wilful Promotion of Hatred,NO,23
+2019-09-18,1,2019,Assault,YES,12
+2021-07-11,0,2021,Theft,YES,4
+2018-11-14,0,2018,Assault,NO,19
+2023-05-07,1,2023,Fraud,NO,18
+2019-10-21,2,2019,Wilful Promotion of Hatred,YES,1
+2018-12-28,1,2018,Fraud,NO,3
+2021-08-18,3,2021,Mischief,NO,19
+2018-06-06,3,2018,Wilful Promotion of Hatred,YES,3
+2019-12-21,2,2019,Theft,NO,17
+2022-09-02,2,2022,Wilful Promotion of Hatred,NO,8
+2020-07-17,0,2020,Fraud,NO,20
+2021-03-17,2,2021,Wilful Promotion of Hatred,NO,19
+2023-06-18,1,2023,Mischief,YES,21
+2019-05-06,1,2019,Theft,NO,10
+2018-08-28,1,2018,Assault,NO,10
+2019-04-10,4,2019,Mischief,YES,3
+2021-08-08,2,2021,Fraud,NO,18
+2020-12-24,3,2020,Theft,YES,10
+2018-05-07,2,2018,Fraud,NO,3
+2021-02-18,2,2021,Assault,NO,23
+2018-02-18,0,2018,Assault,YES,20
+2019-02-16,0,2019,Mischief,YES,10
+2021-02-24,3,2021,Assault,YES,4
+2021-10-05,0,2021,Wilful Promotion of Hatred,YES,6
+2021-09-21,1,2021,Assault,YES,10
+2020-10-16,1,2020,Mischief,NO,22
+2020-11-06,2,2020,Assault,NO,23
+2019-09-02,2,2019,Theft,NO,1
+2019-09-05,2,2019,Theft,NO,22
+2023-01-13,1,2023,Wilful Promotion of Hatred,YES,4
+2020-05-09,1,2020,Wilful Promotion of Hatred,NO,16
+2020-09-19,1,2020,Theft,NO,5
+2023-12-15,0,2023,Theft,YES,22
+2021-09-27,2,2021,Assault,YES,13
+2023-04-16,0,2023,Assault,NO,0
+2022-10-03,2,2022,Assault,NO,0
+2023-12-29,0,2023,Assault,YES,1
+2022-09-16,0,2022,Fraud,NO,2
+2022-08-28,3,2022,Fraud,YES,21
+2019-03-26,0,2019,Fraud,NO,15
+2023-03-16,2,2023,Theft,NO,13
+2021-07-28,1,2021,Assault,NO,18
+2018-11-12,1,2018,Assault,YES,23
+2019-03-15,4,2019,Assault,YES,7
+2018-06-07,1,2018,Fraud,NO,14
+2022-12-04,0,2022,Theft,NO,21
+2022-05-07,1,2022,Assault,YES,9
+2018-04-16,1,2018,Assault,YES,22
+2018-02-05,1,2018,Assault,YES,16
+2018-08-11,2,2018,Wilful Promotion of Hatred,NO,7
+2022-10-03,1,2022,Fraud,NO,18
+2021-05-21,0,2021,Mischief,YES,22
+2023-03-06,0,2023,Mischief,NO,17
+2018-06-25,1,2018,Mischief,NO,5
+2021-02-14,1,2021,Mischief,NO,21
+2019-10-13,2,2019,Theft,NO,13
+2019-08-22,0,2019,Assault,NO,14
+2019-07-09,1,2019,Theft,YES,2
+2023-03-31,0,2023,Assault,YES,13
+2020-01-06,0,2020,Wilful Promotion of Hatred,NO,16
+2020-03-19,1,2020,Theft,NO,7
+2021-07-02,3,2021,Theft,YES,12
+2020-08-24,1,2020,Wilful Promotion of Hatred,YES,9
+2023-06-24,0,2023,Fraud,NO,18
+2020-06-18,2,2020,Theft,NO,19
+2020-04-16,1,2020,Fraud,NO,5
+2022-06-08,1,2022,Assault,NO,9
+2019-03-26,0,2019,Wilful Promotion of Hatred,YES,6
+2022-04-14,2,2022,Theft,NO,1
+2023-01-17,0,2023,Mischief,NO,8
+2022-03-05,0,2022,Mischief,NO,20
+2018-05-28,1,2018,Theft,YES,14
+2023-01-11,0,2023,Wilful Promotion of Hatred,NO,18
+2019-05-27,0,2019,Theft,YES,2
+2018-05-30,2,2018,Mischief,NO,8
+2021-12-04,0,2021,Mischief,NO,14
