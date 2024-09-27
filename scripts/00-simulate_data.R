@@ -1,7 +1,7 @@
 #### Preamble ####
 # Purpose: Simulates data from Open Data Toronto
 # Author: Dingshuo Li
-# Date: 27 September 2024 
+# Date: 27 September 2024
 # Contact: dawson.li@mail.utoronto.ca
 # License: None
 # Pre-requisites: None
@@ -21,8 +21,8 @@ number_of_dates <- 200
 start_date <- as.Date("2018-01-03")
 end_date <- as.Date("2023-12-30")
 
-#simulate the data
-data <- 
+# simulate the data
+data <-
   tibble(
     dates = as.Date(
       runif(
@@ -32,15 +32,20 @@ data <-
       ),
       origin = "1970-01-01"
     ),
-    number_of_hate_crime = rpois(n = number_of_dates, lambda = 1)  
+    number_of_hate_crime = rpois(n = number_of_dates, lambda = 1)
   ) %>%
   mutate(
-    occurrence_year = year(dates),  
-    primary_offence = sample(c("Assault", "Mischief", "Theft", "Fraud", 
-                               "Wilful Promotion of Hatred"), 
-                             number_of_dates, replace = TRUE),
+    occurrence_year = year(dates),
+    primary_offence = sample(
+      c(
+        "Assault", "Mischief", "Theft", "Fraud",
+        "Wilful Promotion of Hatred"
+      ),
+      number_of_dates,
+      replace = TRUE
+    ),
     arrest_made = sample(c("YES", "NO"), number_of_dates, replace = TRUE, prob = c(0.4, 0.6)),
-    hour = sample(0:23, number_of_dates, replace = TRUE)  
+    hour = sample(0:23, number_of_dates, replace = TRUE)
   )
 
 #### Write CSV ####
@@ -52,4 +57,3 @@ expected_start_date <- as.Date("2018-01-03")
 expected_end_date <- as.Date("2023-12-30")
 test_date_range <- min(data$dates) >= expected_start_date & max(data$dates) <= expected_end_date
 print(test_date_range)
-

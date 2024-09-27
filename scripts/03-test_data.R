@@ -29,4 +29,3 @@ all(is.na(data$hour))
 all(is.na(data$occurrence_year))
 all(is.na(data$primary_offence))
 all(is.na(data$arrest_made))
-

@@ -33,4 +33,3 @@ cleaned_data <-
 
 #### Save data ####
 write_csv(cleaned_data, "data/analysis_data/analysis_data.csv")
-
