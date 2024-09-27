@@ -1,0 +1,207 @@
+---
+title: "Analyzing Hate Crime Trends in Toronto: Patterns, Biases and Impacts"
+author: 
+  - Dingshuo Li
+thanks: "Code and data are available at: https://github.com/dawsonlll/Hate-Crime-Open-Data-Analysis"
+date: Sept 27, 2024
+date-format: long
+abstract: "This paper analyzes patterns of hate crimes in recent years using public data to understand when and how these incidents occur. The findings show a steady increase in the number of reported hate crimes, particularly offenses such as assault and property damage. Notably, these incidents occur more frequently at certain times of the day, while relatively few arrests are made, highlighting the challenges faced by law enforcement in responding. This analysis reveals the persistence and nature of hate crimes and suggest the need for more effective strategies to prevent and address these harmful behaviours in our communities."
+format: pdf
+number-sections: true
+bibliography: references.bib
+---
+
+```{r}
+#| include: false
+#| warning: false
+#| message: false
+library(tidyverse)
+library(palmerpenguins)
+library(opendatatoronto)
+library(knitr)
+library(ggplot2)
+library(dplyr)
+
+data <- read_csv(here::here("data/analysis_data/analysis_data.csv"))
+
+```
+
+
+# Introduction
+
+A hate crime is also called a bias crime, it occurs when the offender targets a victim because of their physical appearance or perceived membership in a particular social group. These crime act is committed against a person or property that is motivated in whole or in part by the perpetrator's prejudice, stereotype or hatred against an identifiable group. The identifiable group may be based on race, national, ethnic origin, skin colours, religions, sex, ages, language, mental or physical disability, sexual orientation, gender identity or expression etc @citetps.
+
+Hate crimes have emerged into a significant concern in urban environment. Toronto as one of Canada's most diverse cities did not immune to such challenges. Recent data shows that the rise of hate crimes, including assaults, property damage and openly inciting hatred. In response to these situations, Canadian government has implemented several initiatives over the past twenty years: Canada's Action Plan Against Racism(2006-2010) and Canada's Anti_racism Strategy(2019-2022)@citejusticecanada. Despite these efforts, hate crimes continue to increase, both online and in public, highlighted by attacks against the Muslim community and tragic events such as the discovery of graves at residential schools. Statistics Canada reports that hate crimes have increased in recent years, reflecting their growing prominence in public discourse@citejusticecanada. Since Statistics Canada began reporting police-reported hate crimes in 2005, the number of incidents reported each year has increased significantly. The data, which comes from police reports and victim statements, only records incidents that authorities determine are hate crimes @citejusticecanada. 2007 report from the Canadian Department of Justice highlighted early findings on the needs of hate crime victims, using data from Canada and the United States, and the availability of data has expanded since then. The steady rise in reported hate crimes may reflect increased public awareness, improved police community outreach, and increased sensitivity following high-profile incidents. @citejusticecanada In 2021, the second year of the pandemic, hate crimes increased by a massive 72% over 2020, primarily crimes targeting religion, sexual orientation, and race or ethnicity, with hate crimes occurring in nearly every province and territory in Canada. @citejusticecanada
+
+In Canada, the Criminal Code does not explicitly define the concept of hate crimes. Instead, the hate propaganda section provides for three specific offences: advocating genocide (Section 318), public incitement of hatred (Section 319(1)), and willful promotion of hatred (Section 319(2)). @citePeelPolice The investigations are particularly complex, requiring a delicate balance between constitutional rights such as free speech and criminal law. Charges typically require the involvement of prosecutors and the consent of the attorney general, highlighting the procedural challenges of prosecuting hate crimes.@citePeelPolice
+
+The purpose of this paper is to analyze patterns of hate crimes in Toronto from 2018 to 2023 using publicly available data. By examining the temporal and spatial distribution of these crimes, as well as the types of offenses and arrest rates, this study aims to discover the underlying reason that lead to hate crime incidents in the city. The findings reveal key insights into when and where hate crimes are most likely to occur, highlighting specific hotspots and times of increased risk. This analysis highlights not only the challenges faced by law enforcement in responding effectively to these crimes, but also the need for targeted interventions. The benefits of this research are for many aspects : policymakers can use the findings to develop more effective crime prevention strategies, community organizations can better allocate resources to support vulnerable populations, and law enforcement can improve methods for identifying and prosecuting hate crimes. By raising public awareness and encouraging community involvement, the study contributes to the creation of a safer, more inclusive society that actively addresses hate and prejudice. In addition, it provides a valuable framework for other urban centers facing similar challenges, promoting evidence-based decision-making that supports the rights and safety of all citizens.
+
+The remainder of the paper is structured as follows: @sec-data details the data selection process, including the criteria for selecting the data set and the data cleaning procedures. This section aims to ensure transparency and accuracy in the preparation process for data analysis. @sec-result presents the results of the analysis, exploring hate crime trends from 2018 to 2023 through various graphs and charts. @sec-discussion provides a comprehensive discussion of the results, where we compare the findings to the existing literature and provide recommendations on how to address the issues identified. Finally, @sec-limitation outlines the limitations of the study and suggests steps for future research, including areas for further investigation and strategies to improve the effectiveness of hate crime prevention and response.
+
+
+# Data {#sec-data}
+## Raw Data
+
+The data used in this paper comes from Toronto Open Data @citetoronto, a publicly accessible dataset generated by city departments and services. The dataset includes all verified hate crime occurrences investigated by the Hate Crime Unit. The dataset contains detailed information on each incident, including the type of offense, time of occurrence, location, and whether an arrest was made. All incident reported were through evaluates evidence, interviews relevant parties and verifies biased motives behind the crime and only incidents that have been verified through investigation by the Hate Crime Unit are entered into the dataset by city departments and services. We are interested in this data because hate crimes are a deeply troubling social issue that affects the safety, dignity and well-being of individuals and communities. By analyzing these data, we can gain insight into the patterns, timing, and nature of hate crimes. The dataset is current and updated daily to ensure coverage of the latest hate crime incidents.
+
+The dataset is read into this paper through opendatatoronto package. @citetoronto All data analysis was conducted using R, including statistical computing and graphics. And the following R packages were used: tidyverse @citetidyverse, Palmerpenguins @palmerpenguins, ggplot2 @citeGgplot2, Dplyr @citedplyr, and Knitr @citeknitr for graph and table. In addition, r code used for data simulate, download, cleaning and test was adapted from @alexander2023telling.
+
+
+
+## Cleaned Data
+Instead of selecting all variables in the analysis dataset, some columns in the original dataset were filtered and NAs were removed. Additionally, the hour column is generated based on the occurrence_time. The process also included convert year date, times formats. For deatiled description of process please refer to the @sec-A.
+A sample of cleaned data can be seen in @tbl-cleaned-data.
+
+```{r}
+#| label: tbl-cleaned-data
+#| tbl-cap: “Sample of Cleaned Data”
+#| echo: false
+#| warning: false
+#| message: false
+sample_cleaned_data <- head(data, 6)
+kable(sample_cleaned_data, 
+      col.names = c("Occur Year", "Occur Date", "Occur Time", "Primary Offence", "Arrest made", "Occur Hour"))
+```
+
+## Summary and Discussion of Data
+
+The cleaned dataset includes key variables that are critical to analyzing hate crimes occurring in Toronto, These characteristics provide a comprehensive understanding of when and where hate crimes occur, the specific offenses involved, and the law enforcement response. The crime year and occur date variables can be used for trend analysis over time and identification of seasonal or specific patterns, while the incident hour are useful for examining daily crime patterns. Location type indicate the place in which each incident occurs, highlighting high-risk areas, on the other hand, primary offence details the nature of the crime. The arrested made variable can provides insight into the effectiveness of law enforcement. Overall, the data cleaning process ensured that the dataset was transparent and accurate, and that all entries were correctly formatted, free of errors, and ready for detailed analysis. The results of the analysis, including trends, biases and implications, are discussed further in @sec-result.
+
+
+
+
+
+# Result {#sec-result}
+## Examine the Trend of Hate Crime over Year
+Using @citeR with the package ggplot @citeGgplot2 for analysis with graphs. The primary interested aspect is how the trend of hate crimes looks like since 2018. The trend of hate crimes over years is illustrated in @fig-trend-year.
+
+```{r}
+#| label: fig-trend-year
+#| fig-cap: "Trend of Hate Crime over Years"
+#| echo: false
+#| warning: false
+#| message: false
+
+yearly_reports <- data %>%
+  count(occurrence_year)
+
+ggplot(yearly_reports, aes(x = occurrence_year, y = n)) +
+  geom_bar(stat = "identity", fill = "darkgrey") +
+  labs(title = "Number of Reports per Year", x = "Year", y = "Number of Reports") +
+  theme_minimal()
+
+```
+The display of the trend of reported hate crimes in Toronto from 2018 to 2023 shows a upward trend. Starting at 2018, the number of reports were relatively low, with just over 100 incidents.However, a significant increase can be observed starting from 2020. The number of reports almost doubled in 2021 compare to 2018. The trend continuous to increase unit it reaches its peak in 2023 with over 350 reports. The sharp upward increase indicate the growing prevalence of hate crimes, highlights the persistent and escalating nature of hate crimes in the city, underscoring the need for interventions and policies to address this critical issue.
+
+\newpage
+## The Trend of Hate Crime in a Day
+
+After analyzing hate crime trends over years, it is also important to explore the times of day when these incidents are most likely to occur. An hour-by-hour breakdown can provide more insight into specific times when the crime frequency is higher.
+
+
+```{r}
+#| label: fig-hour-report
+#| fig-cap: "Trend of Reported Crime in Hours"
+#| echo: false
+#| warning: false
+#| message: false
+
+hourly_counts <- data %>%
+  count(hour)
+
+ggplot(hourly_counts, aes(x = hour, y = n)) +
+  geom_line(color = "green2") +
+  geom_point() +
+  labs(title = "Occurrences by Hour of the Day", x = "Hours of the Day", y = "Number of Reports") +
+  theme_minimal() +
+  scale_x_continuous(breaks = 0:23)
+```
+
+From the @fig-hour-report the graph shows significant variability in the time of occurrences. The most notable peaks are around 12:00 P.M. to 1:00 P.M. and around midnight, while the number of incidents remain relatively low between early morning. Starting from around 8:00 A.M., there is a gradual increase which reaches to peak after lunch time, might be coincide with increased public activity or interaction. Thereafter, the number of reports fluctuates, but tends to decline as the clock ticks down to midnight. Overall, the data suggest that hate crimes are most frequent during the late night and midday hours, highlighting the need for targeted prevention and awareness-raising efforts during these high-risk hours. 
+
+\newpage
+## Examie the Arrest Rate by Years 
+
+Beyond analyzing when hate crimes are most likely to occur, it is also essential to understand how law are enforced and responded to these incidents. Examining arrest rates can provide insight into the effectiveness of interventions and the challenges that authorities face.
+```{r}
+#| label: fig-offence
+#| fig-cap: "The Trend of Arrested Rate"
+#| echo: false
+#| warning: false
+#| message: false
+arrest_by_year <- data %>%
+  count(occurrence_year, arrest_made)
+
+ggplot(arrest_by_year, aes(x = occurrence_year, y = n, fill = arrest_made)) +
+  geom_bar(stat = "identity", position = "stack") +
+  labs(title = "Arrests Made by Year", x = "Year", y = "Number of Reports") +
+  theme_minimal() +
+  theme(legend.position = "right")+
+  scale_fill_manual(values = c("YES" = "pink2", "NO" = "darkblue"))
+
+```
+
+
+
+From 2018 to 2023, the @fig-offence shows the total arrested made is grudual increasing, however, despit the overall increase in hate crime incident, the proportion of arrest made remains relatively low. The minimal number of arrested made indicating a significant gap between reported crimes and law enforcement action. Overall, the data shows that while the number of reports of hate crimes has increased, arrest rates have not kept low, highlighting the ongoing challenges in prosecuting hate crimes. There is a great need for enhanced law enforcement and community engagement.
+
+
+\newpage
+## The Distribution Type of Hate Crime
+
+```{r}
+#| label: fig-type
+#| fig-cap: "Distribution of Hate Crime Type"
+#| echo: false
+#| warning: false
+#| message: false
+
+offence_counts <- data %>%
+  count(primary_offence, sort = TRUE)
+
+ggplot(offence_counts, aes(x = reorder(primary_offence , n), y = n)) +
+  geom_bar(stat = "identity", fill = "purple2") +
+  coord_flip() +
+  labs(title = "Distribution of Offences by Type", x = "Offence Type", y = "Number of Occurrences") +
+  theme_minimal()
+
+```
+
+The @type highlights that the most common crimes are "Mischief under $5,000" and "Assault", which far outnumber other crime categories. These two crime types dominate the distribution. As can be seen from the graph, while certain violent and destructive behaviours are more prominent, hate-motivated crimes are also diverse, including “public incitement to hatred”, “sexual assault”, and “advocating genocide" and other less common but serious charges. This distribution highlights the multifaceted nature of hate crimes.
+
+
+
+# Discussion and Conclusion{#sec-discussion}
+
+Based on the result in @sec-result, the analysis of hate crime trends in Toronto reveals important patterns in the temporal, spatial, and behavioural patterns of these crimes. Over the years trends indicate an upward trend in hate crime reports, particularly in recent years, which is consistent with broader patterns observed in the literature and official reporting. As various articles and government sources have noted, this increase reflects not only the persistence of hate incidents but also a growing culture of awareness and reporting. For example, as highlighted by a Toronto Police Service report and a national study on hate crime trends, the spike in reports around 2021 is associated with heightened social tensions and increased visibility of hate crimes in public discourse. An important conclusion that emerged from the analysis was the temporal distribution of hate crimes, with clear peaks at specific times of the day. Incidents are most likely to occur late at night and midday, with a spike in reports at midnight and another significant peak around midday. This pattern suggests that hate crimes may be more likely to occur during periods of increased public interaction or following incidents that heighten tensions. Suggesting that crimes typically occur during transitional periods in daily life and that the high number of late-night reports may also indicate a time when perpetrators believe they are less likely to be caught. Hate crimes may be opportunistic, occurring at times when there are fewer bystanders or potential witnesses.
+
+Hate crime-related arrest data show a significant gap between the number of reported incidents and the proportion of cases that result in law enforcement action. While the number of arrests has increased slightly over time, the overall arrest rate remains low compared to the surge in reported cases. This disparity highlights the continuing challenges faced by law enforcement, including the complexity of investigating hate crimes, collecting sufficient evidence, and meeting the legal thresholds required for prosecution. These challenges are matched in the literature, which frequently identifies systemic problems in addressing hate crimes. The distribution of offenses further highlights the multifaceted nature of hate crimes in Toronto. The predominance of “mischief under $5,000” and “assault” as major crime types emphasizes that property damage and physical violence are common manifestations of hateful behaviour. This pattern reflects societal trends, with hate crimes often targeting individuals and community, causing psychological, emotional and economic damage. In addition, the existence of less common but serious crimes, such as “public incitement to hatred” and “advocacy of genocide”, underscores the fact that hate crimes not only pose a serious threat to the direct victims, but also seek to create fear within the entire communities.
+
+Overall, the results of this analysis emphasize the urgent need for targeted interventions and stronger law enforcement measures to combat the increase in hate crimes. Preventive measures should be focused on the late night and midday hours when incidents are most likely to occur. In addition, the high frequency of property damage and physical assaults calls for community-based initiatives aimed at preventing these crimes and supporting victims. Finally, the persistent gap between reported incidents and arrests underscores the need for systemic reforms in the way hate crimes are prosecuted to ensure that justice is served in all affected communities. This analysis is not only consistent with existing reports and literature, but also provides new insights into specific temporal and categorical trends in hate crimes in Toronto, providing valuable data for further research and policy development.
+
+
+
+# Weaknesses and next steps {#sec-limitation}
+
+While this analysis provides valuable insights into the nature and patterns of hate crimes in Toronto, a number of limitations must be recognized. The data used in this study only includes confirmed hate crimes investigated by the Hate Crimes Unit. It does not take into account incidents that were deemed unfounded or categorized as hate incidents, which do not meet the legal criteria for a hate crime but still involve bias behaviour. This exclusion means that the data may underestimate the true extent of hate incidents in the community, as many incidents that contribute to an understanding of wider patterns of discrimination are not recorded. In addition, the primary purpose of the dataset is to inform the community about public safety and to raise awareness. Therefore, in order to protect the privacy of the individuals and communities involved, protective measures have been put in place. In summary, while this paper provides a comprehensive overview of hate crime trends in Toronto, the above limitations should be considered when interpreting the findings. Addressing these data gaps in future research will enhance the understanding of hate crime, facilitate more effective and targeted prevention and response to these critical issues.
+
+\newpage
+
+\appendix
+
+# Appendix {#sec-A}
+
+## Sketches 
+Sketches of the datasets and plots are available in the "Others" folder in the repository
+
+##  Data Cleaning 
+The raw data underwent a thorough cleaning process using janitor @citejan to ensure accuracy and consistency in the analysis. First, the dataset was standardized and the column names were converted to a consistent format. We selected key variables including year of occurrence, date of occurrence, time of occurrence, primary offense, and arrests because these fields are critical to understanding the temporal and spatial dimensions of hate crimes as well as the nature of the crime and the corresponding law enforcement response. Missing values for key columns such as date of occurrence and primary offense were filtered to maintain the integrity of the analysis.
+
+The data cleaning process also included the conversion of dates and times to standardized formats. The date of the crime was converted to the appropriate date format, while the time of the crime was formatted as a 24-hour time string to allow for precise hourly analysis. An additional variable, hour, was extracted from the crime time to facilitate the study of crime patterns by time of day. Finally, the crime year was converted to a numeric format to support year-based trend analysis. This targeted approach to data selection and cleaning ensured that the most relevant and reliable data points were analyzed to provide a comprehensive understanding of when and where hate crimes occur and how law enforcement deals with them.
+\newpage
+
+
+# References
+
+
