@@ -32,7 +32,7 @@ data <-
       ),
       origin = "1970-01-01"
     ),
-    number_of_hate_crime = rpois(n = number_of_dates, lambda = 1)  # Adjust lambda as needed
+    number_of_hate_crime = rpois(n = number_of_dates, lambda = 1)  
   ) %>%
   mutate(
     occurrence_year = year(dates),  
